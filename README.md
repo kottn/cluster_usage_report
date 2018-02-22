@@ -6,7 +6,7 @@
 * 管理者(root)権限になれる人が使う。
 * 親ノードのホスト名は`oyanode`で、ユーザー名は`tarou`。
 
-## 前準備
+## 準備
 ### ログイン
 ```
 $ ssh tarou@oyanode
@@ -15,7 +15,8 @@ $ ssh tarou@oyanode
 * ツール内でpython のライブラリをいくつか呼んでいる。
 * それらをまるっと導入する conda をインストールする。
 
-:point_right: [インストール方法](https://github.com/kottn/begin_conda)
+:point_right: [インストール方法](https://github.com/kottn/begin_conda) の「**Step 3**」までやる
+* とりわけ`conda install`するものはない。anaconda の基本パッケージだけでよい。
 
 ### このリポジトリを`clone`する
 ```
