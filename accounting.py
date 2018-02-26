@@ -10,21 +10,20 @@ import json
 ####### INP. #######
 cluster  = ''
 allcore  = 320
-user    = ''
-this_YY = '2018'
-this_MM = '01'
+this_YY  = '2018'
+this_MM  = '01'
 ####################
 
 
-YYMM  = this_YY + this_MM           # e.g. 201801
-YY_MM = this_YY + '_' + this_MM     # e.g. 2018_01
+YYMM  = this_YY + this_MM
+YY_MM = this_YY + '_' + this_MM
 
 ### GET CLUSTER INFO & TORQUE-LOGS
 cmd = "mkdir -p logfiles/" + cluster + '/' + YY_MM
 run(cmd, shell=True)
 cmd = 'scp root@' + cluster + ':/var/spool/torque/server_priv/accounting/' + YYMM + '* ./logfiles/' + cluster + '/' + YY_MM
 run(cmd, shell=True)
-cmd = 'ssh ' + user + '@' + cluster + ' \ls /home'
+cmd = 'ssh root@' + cluster + ' \ls /home'
 u = run(cmd, shell=True, stdout=PIPE, universal_newlines=True).stdout.splitlines()
 l = [0] * len(u)
 cluster_usage = dict(zip(u, l))
