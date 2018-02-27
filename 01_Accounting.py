@@ -6,8 +6,8 @@ import getpass
 import calendar
 
 ####### INP. #######
-HOST    = 'kimchi'
-allcore = 320
+HOST    = 'serverhost'
+allcore = 600
 YY      = '2018'
 MM      = '01'
 ####################
