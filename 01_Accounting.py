@@ -2,11 +2,12 @@ import glob
 import numpy as np
 import matplotlib.pyplot as plt
 from subprocess import run, PIPE
+import getpass
 import calendar
 
 ####### INP. #######
-HOST    = 'pea'
-allcore = 264
+HOST    = 'kimchi'
+allcore = 320
 YY      = '2018'
 MM      = '01'
 ####################
@@ -112,7 +113,7 @@ mdfile.write('![](../' + outname + '.png)' + '\r\n')
 mdfile.write('\r\n')
 
 mdfile.write('# Transition of operation efficiency' + '\r\n')
-mdfile.write('![](./Usage_History.png)')
+mdfile.write('![](./Usage_Transition.png)')
 mdfile.close()
 
 
@@ -125,14 +126,17 @@ ax = plt.axes()
 
 
 ax.grid(True)
-ax.set_title('Total amount of usage')
+ax.set_title('Usage rate of each user')
 ax.set_ylabel('Usage (Cpu core x hour)')
 ax.bar(x, usage_val, linewidth=0.5, width=0.7, tick_label=names, align='center')
 ax.set_xticklabels(names, rotation=90, ha='center')
 
 for i, j in zip(x, usage_val):
-    percentage = j/total_usage*100
-    plt.text(i, j, "%d%%" % percentage, ha='center', va='bottom')
+    percentage = 0
+    if total_usage > 0:
+        percentage = j/total_usage*100
+    if percentage > 0.1:
+        plt.text(i, j, "%.1f%%" % percentage, rotation=60, ha='center', va='bottom')
 
 fig.tight_layout()
 fig.savefig(outname+'.png', dpi=300)
