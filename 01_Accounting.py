@@ -7,14 +7,14 @@ import calendar
 ####### INP. #######
 HOST    = 'serverhost'
 allcore = 600
-YY      = '2018'
-MM      = '01'
+yyyy    = '2018'
+mm      = '01'
 ####################
 
 ### GET CLUSTER INFO & TORQUE-LOGS
-cmd = "mkdir -p logfiles/" + HOST + '/' + YY + '_' + MM
+cmd = "mkdir -p logfiles/" + HOST + '/' + yyyy + '_' + mm
 run(cmd, shell=True)
-cmd = 'scp root@' + HOST + ':/var/spool/torque/server_priv/accounting/' + YY + MM + '* ./logfiles/' + HOST + '/' + YY + '_' + MM
+cmd = 'scp root@' + HOST + ':/var/spool/torque/server_priv/accounting/' + yyyy + mm + '* ./logfiles/' + HOST + '/' + yyyy + '_' + mm
 run(cmd, shell=True)
 cmd = 'ssh root@' + HOST + ' \ls /home'
 u = run(cmd, shell=True, stdout=PIPE, universal_newlines=True).stdout.splitlines()
@@ -23,11 +23,11 @@ cluster_usage = dict(zip(u, l))
 
 cmd = 'mkdir -p ' + HOST
 run(cmd, shell=True)
-outname = HOST + '/Usage_' + YY + '_' + MM
-filelist = glob.glob('./logfiles/' + HOST + '/' + YY + '_' + MM + '/*')
+outname = HOST + '/Usage_' + yyyy + '_' + mm
+filelist = glob.glob('./logfiles/' + HOST + '/' + yyyy + '_' + mm + '/*')
 
-when  = '(' + MM + ', ' + YY + ')'
-ndays = calendar.monthrange(int(YY),int(MM))[1]
+when  = '(' + mm + ', ' + yyyy + ')'
+ndays = calendar.monthrange(int(yyyy),int(mm))[1]
 
 total_usage = 0
 for logfile in filelist:

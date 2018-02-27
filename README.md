@@ -28,7 +28,7 @@ $ cd; git clone https://github.com/kottn/cluster_usage_report
 $ tree cluster_usage_report
 cluster_usage_report/
 |-- 01_Accounting.py  # 指定月のユーザー利用率のグラフ(Usage_yyyy_mm.png)、レポート(Usage_yyyy_mm.md)を作る
-|-- 02_UsageTrans.py  # これまでの稼働率の推移グラフ(Usage_transision.png)を作る
+|-- 02_UsageTrans.py  # これまでの稼働率の推移グラフ(Usage_transition.png)を作る
 `-- README.md         # This file
 ```
 
@@ -39,8 +39,8 @@ cluster_usage_report/
 ####### INP. #######
 HOST    = 'serverhost' # 対象のヘッドノードのホスト名（もしくはIP）
 allcore = 600          # クラスターのMAXプロセス数（クラスター内で qstat -Q すれば確認できる）
-YY      = '2018'       # レポートする年
-MM      = '01'         # レポートする月
+yyyy    = '2018'       # レポートする年
+mm      = '01'         # レポートする月
 ####################
 ```
 
@@ -98,24 +98,24 @@ $ python 02_UsageTrans.py
 cluster_usage_report/
 |-- 01_Accounting.py
 |-- 02_UsageTrans.py
-|-- myhost/
+|-- serverhost/
 |   |-- Usage_2018_01.md      # [New!] 配布用レポート
 |   |-- Usage_2018_01.txt     # [New!] 簡易レポート
 |   |-- Usage_2018_01.png     # [New!] ユーザー別利用率グラフ
 |   `-- Usage_transition.png  # [New!] 推移グラフ
 |-- logfiles/
-|   `-- myhost/
+|   `-- serverhost/
 |       `-- 2018_01/          # [New!] ログファイル
 `-- README.md*
 ```
 
 ## 印刷
-1. Windows に今回の生成物（`Usage_*`）を持ってくる。
+1. Windows に今回の生成物（`Usage_*`の4ファイル）を持ってくる。
 1. `*.md`（Markdownファイルといいます。中身はテキストです。）を何らかの方法で表示。
 1. 簡単なのは Markdown Viewer というブラウザーのアドオン。
-1. For [Firefox](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-chrome/) / [Chrome](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk) ※ Chrome は「ファイルのURLへのアクセスを許可する」のを忘れない。
+1. Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-chrome/) / [Chrome](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk) ※ Chrome は「ファイルのURLへのアクセスを許可する」のを忘れない。
 1. `*.md` ファイルをブラウザにドラッグ＆ドロップすると、レポートが表示される。
-1. あとはPDFに印刷するなりする。
+1. あとはPDFに印刷するなり何なりする。
 1. 60% くらいの倍率で印刷すると A4 に収まる。
 
 おしまい。
