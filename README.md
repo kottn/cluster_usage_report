@@ -112,7 +112,8 @@ cluster_usage_report/
 ## 印刷
 1. Windows に今回の生成物（`Usage_*`）を持ってくる。
 1. `*.md`（Markdownファイルといいます。中身はテキストです。）を何らかの方法で表示。
-1. 例えば簡単なのは Markdown Viewer アドオン。（[Firefoxユーザー](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-chrome/) / [Chromeユーザー](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk) ※ Chrome は追加後に、拡張機能設定で「ファイルのURLへのアクセスを許可する」にチェック）
+1. 簡単なのは Markdown Viewer というブラウザーのアドオン。
+1. For [Firefox](https://addons.mozilla.org/en-US/firefox/addon/markdown-viewer-chrome/) / [Chrome](https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk) ※ Chrome は「ファイルのURLへのアクセスを許可する」のを忘れない。
 1. `*.md` ファイルをブラウザにドラッグ＆ドロップすると、レポートが表示される。
 1. あとはPDFに印刷するなりする。
 1. 60% くらいの倍率で印刷すると A4 に収まる。
