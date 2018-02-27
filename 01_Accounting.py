@@ -2,7 +2,6 @@ import glob
 import numpy as np
 import matplotlib.pyplot as plt
 from subprocess import run, PIPE
-import getpass
 import calendar
 
 ####### INP. #######
