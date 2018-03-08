@@ -12,8 +12,9 @@
 
 ## 準備
 ### (1) Linux 環境を用意
-今回は Windows で手軽に Ubuntu が動く WSL 環境を想定する。
 :point_right: [シス管系女子 - 漫画でわかるWSL](http://system-admin-girl.com/comic/begins/sp-wsl/)
+
+今回は Windows で手軽に Ubuntu が動く WSL 環境を想定する。
 
 ### (2) conda を(1)の環境にインストール
 ※ anaconda を入れたことがあり、`python --version`の結果が`Python 3.6.X :: Anaconda, Inc.`（もしくはそれ以上のバージョン）なら**スキップして準備(3)へ。**
