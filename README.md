@@ -66,8 +66,7 @@ $
 ####### INP. #######
 HOST = 'serverhost'    # Step 1 に揃える
 ####################
-.
-.
+
 if HOST == 'serverhost':    # Step 1 に揃える
   .
   .
