@@ -8,13 +8,14 @@
 * Torque で運用されているクラスターがレポート対象。
 * 管理者(root)権限になれる人が使う。
 * クラスターに`ssh`できる Linux 環境で作業を行う。
-* Reqd. `python --version` >= 3.6
+* そのLinux環境では `python --version` >= 3.6 が必要（conda での構築方法は後述）。
 
 ## 準備
 ### (1) Linux 環境を用意
-:point_right: [シス管系女子 - 漫画でわかるWSL](http://system-admin-girl.com/comic/begins/sp-wsl/) など。
+今回は Windows で手軽に Ubuntu が動く WSL 環境を想定する。
+:point_right: [シス管系女子 - 漫画でわかるWSL](http://system-admin-girl.com/comic/begins/sp-wsl/)
 
-### (2) conda をインストール
+### (2) conda を(1)の環境にインストール
 ※ anaconda を入れたことがあり、`python --version`の結果が`Python 3.6.X :: Anaconda, Inc.`（もしくはそれ以上のバージョン）なら**スキップして準備(3)へ。**
 * python のライブラリをいくつか呼んでいる。
 * それらをまるっと導入する conda をインストールする。
@@ -25,6 +26,7 @@
 ### (3) このリポジトリを`clone`する
 ```
 $ cd; git clone https://github.com/kottn/cluster_usage_report
+$ sudo apt install tree   # tree コマンドのインストール
 $ tree cluster_usage_report
 cluster_usage_report/
 |-- 01_Accounting.py  # 指定月のユーザー利用率のグラフ(Usage_yyyy_mm.png)、レポート(Usage_yyyy_mm.md)を作る
@@ -64,6 +66,11 @@ $
 ####### INP. #######
 HOST = 'serverhost'    # Step 1 に揃える
 ####################
+.
+.
+if HOST == 'serverhost':    # Step 1 に揃える
+  .
+  .
 ```
 
 * 直後のリストに、Operation efficiency の値を追記していく。
